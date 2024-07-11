@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <h1>Day 1</h1>
-      <input type="text" placeholder="The Fruit that you want search" onChange={handleInput}/>
+      <input type="text" placeholder="Enter a fruit name to search" onChange={handleInput}/>
       <div>
       {/* also can use include() method */}
           {fruits.filter((fruit) => fruit.toLowerCase().startsWith(search.toLowerCase())).map((fruit, index) => (
