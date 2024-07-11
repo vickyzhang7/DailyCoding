@@ -35,3 +35,5 @@ The `App` component in this project provides a user interface to search for vari
 - **Dynamic Search**: The search functionality is case-insensitive and updates the displayed fruit list as you type.
 - **Extensive Fruit List**: The application includes a wide array of fruits from common ones like Apple and Banana to exotic ones like Dragon Fruit and Durian.
 - **Simple and User-Friendly Interface**: With a clear and concise layout, users can easily interact with the application.
+
+<img width="1299" alt="Screenshot 2024-07-11 at 12 17 49 PM" src="https://github.com/vickyzhang7/DailyCoding/assets/130918669/6d581e25-96c5-46ec-9a82-6e807ba9f737">
