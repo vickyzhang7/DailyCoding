@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex vs Relative Positioning</title>
+    <style>
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .relative-container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .item-flex {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+
+        .item-relative {
+            position: relative;
+            top: 30px;
+            left: 40px;
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="item-flex">hh</div>
+    </div>
+    <div class="relative-container">
+        <div class="item-relative">hh</div>
+    </div>
+</body>
+</html>

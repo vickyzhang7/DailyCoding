@@ -1,0 +1,58 @@
+<!-- In this example, the .child element is positioned with top: 50%; left: 50%;, which places its top-left corner at the center of the .parent container.
+    
+The transform: translate(-50%, -50%); moves the .child element 50% of its own width to the left and 50% of its own height upwards, centering the element perfectly within the .parent container. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Translate Comparison</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .parent {
+            position: relative;
+            width: 45%;
+            height: 80%;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .child {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        .child1 {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: red;
+        }
+
+        .child2 {
+            top: 50%;
+            left: 50%;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <div class="child child1"></div>
+        </div>
+        <div class="parent">
+            <div class="child child2"></div>
+        </div>
+    </div>
+</body>
+</html>

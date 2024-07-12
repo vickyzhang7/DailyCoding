@@ -1,0 +1,29 @@
+<!-- p { color: blue; } - Element selector, specificity of 1.
+.special { color: green; } - Class selector, specificity of 10.
+#tagId { color: red; } - ID selector, specificity of 100.
+Inline style style="color: purple;" - Specificity of 1000.
+color: red !important; covers all the above styles, as it has the highest specificity of 10000. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity Example</title>
+    <style>
+        p {
+            color: blue;
+        }
+
+        .special {
+            color: green;
+        }
+
+        #tagId {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p id="tagId" class="special" style="color: purple;">Please color me purple</p>
+</body>
+</html>

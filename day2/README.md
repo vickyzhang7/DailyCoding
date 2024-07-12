@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Getting Started with Day 2 App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This project builds upon the foundation laid on Day 1 by incorporating a debounce feature. The purpose of this enhancement is to improve the performance and user experience of our application by limiting the rate at which a function is executed.
 
-In the project directory, you can run:
+### What is Debounce?
 
-### `npm start`
+Debounce is a programming practice used to ensure that time-consuming tasks do not fire so often, thus improving performance and preventing unintended behavior. It is particularly useful in scenarios where a function is called frequently, such as when handling user input events like keystrokes or window resizing.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features Added
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Debounce Functionality:** Integrated debounce to optimize input handling and other repetitive event triggers.
 
-### `npm test`
+## Setting up the Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get started with this project, follow these steps:
 
-### `npm run build`
+1. **Create the App:**
+   ```
+   npx create-react-app day2
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install Dependencies:**
+   Navigate to the project directory and install necessary dependencies.
+   ```
+   cd day2
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Start the Application:**
+   Use the following command to run the app in the development mode:
+   ```
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make edits. You may also see lint errors in the console.
 
-### `npm run eject`
+## Debounce Interview Questions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Here are some common interview questions related to the debounce functionality:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **What is debounce and how does it work?**
+   - Debounce is a technique used to limit the rate at which a function executes. It works by postponing the execution of a function until after a specified time has elapsed since the last time the function was invoked.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Can you explain the difference between debounce and throttle?**
+   - While both debounce and throttle are used to limit the rate of function execution, debounce postpones the function call until a specified delay has passed without any new calls. Throttle, on the other hand, ensures that a function is called at most once in a specified period.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **In which scenarios would you use debounce over throttle?**
+   - Debounce is ideal for scenarios where the function should only execute after a series of events have stopped firing, such as search input or window resizing. Throttle is better suited for scenarios where you want to ensure that the function executes at regular intervals, such as scrolling or mouse movements.
 
-## Learn More
+4. **How would you implement a debounce function in JavaScript?**
+   ```javascript
+   function debounce(func, delay) {
+       let timeout;
+       return function(...args) {
+           clearTimeout(timeout);
+           timeout = setTimeout(() => {
+               func.apply(this, args);
+           }, delay);
+       };
+   }
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. **What are some potential drawbacks of using debounce?**
+   - Using debounce can delay the execution of important tasks, which might lead to a lag in the user interface. It's essential to choose an appropriate delay time to balance performance and responsiveness.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Conclusion
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The addition of debounce functionality enhances the performance and user experience of the application. Reduce the time and money spent on API calls. Understanding and implementing debounce is crucial for optimizing event-driven tasks and handling frequent user interactions efficiently.
