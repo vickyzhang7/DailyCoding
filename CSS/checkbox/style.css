@@ -1,0 +1,46 @@
+.custom-checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+/* Hide the default checkbox */
+.custom-checkbox {
+    display: none;
+}
+/* Create the custom checkbox */
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #2f2f2f;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+}
+/* Create the custom checkmark */
+.checkmark::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background-color: #008002;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+/* Show the custom checkmark when checkbox is checked */
+.custom-checkbox:checked + .checkmark {
+    border-color: #008002;
+    background-color: #008002;
+}
+.custom-checkbox:checked + .checkmark::after {
+    display: flex;
+    content: "x";
+}
+/* Change the label color and add line-through when checkbox is checked */
+.custom-checkbox:checked + .checkmark + .label-text {
+    color: #008002;
+    text-decoration: line-through;
+}
