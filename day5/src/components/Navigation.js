@@ -59,16 +59,19 @@ export default class Navigation extends Component {
                                 <p className="caption text-start mb-4" data-testid="location">{location}</p>
                                    </div>
                                    <div>
-                                   {index !== 0 && (
-                                        <button className="icon-only small mx-0" data-testid="up-button"
-                                   onClick={() => this.props.moveLocation(index, 'up')}>
+                                        <button 
+                                            className="icon-only small mx-0" 
+                                            data-testid="up-button"
+                                            onClick={() => this.props.moveLocation(index, 'up')}>
                                            <i className="material-icons">arrow_upward</i>
-                                       </button>)}
+                                       </button>
                                     
-                                    {index !== locations.length - 1 && (
-                                        <button className="icon-only small mx-0" data-testid="down-button" onClick={() => this.props.moveLocation(index, 'down')}>
+                                        <button 
+                                            className="icon-only small mx-0" 
+                                            data-testid="down-button" 
+                                            onClick={() => this.props.moveLocation(index, 'down')}>
                                            <i className="material-icons">arrow_downward</i>
-                                       </button>)}
+                                       </button>
                                    </div>
                                 </li>
                                 ))}

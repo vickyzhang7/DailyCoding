@@ -10,8 +10,13 @@ const Employee = ({ employee, idx }) => {
   };
 
   const handleSalaryChange = (e) => {
-    setSalary(e.target.value);
-    if (e.target.value !== employee.salary.toString()) {
+    const newSalary = e.target.value;
+    setSalary(newSalary);
+    validateSalary(newSalary);
+  };
+
+  const validateSalary = (salary) => {
+    if (salary !== employee.salary.toString() && Number(salary) > 0) {
       setIsSaveEnabled(true);
     } else {
       setIsSaveEnabled(false);
