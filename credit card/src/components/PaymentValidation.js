@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useCallback }  from "react";
 import "./PaymentValidation.css";
 
 const PaymentValidation = () => {
@@ -10,11 +10,9 @@ const PaymentValidation = () => {
   const [errors, setErrors] = useState({});
   const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
-    validateForm();
-  }, [cardNumber, cardName, expiryMonth, expiryYear, cvv]);
+  
 
-  const validateForm = () => {
+  const validateForm =useCallback( () => {
     const newErrors = {};
 
     if (!/^\d{16}$/.test(cardNumber)) {
@@ -34,7 +32,11 @@ const PaymentValidation = () => {
     }
 
     setErrors(newErrors);
-  };
+  },[cardNumber, cardName, expiryMonth, expiryYear, cvv, currentYear]);
+
+  useEffect(() => {
+    validateForm();
+  },[validateForm]);  // Now validateForm is a dependency
 
   const handleChange = (setter) => (e) => {
     setter(e.target.value);
@@ -161,3 +163,48 @@ const PaymentValidation = () => {
 };
 
 export default PaymentValidation;
+/*
+### Common Regular Expressions Summary
+
+#### 1. Numbers
+- **Only digits**: `^\d+$`
+  - Matches a string of digits, like `12345`.
+
+#### 2. Letters
+- **Only lowercase letters**: `^[a-z]+$`
+  - Matches a string containing one or more lowercase letters, like `abcde`.
+- **Only uppercase letters**: `^[A-Z]+$`
+  - Matches a string containing one or more uppercase letters, like `ABCDE`.
+- **Both uppercase and lowercase letters**: `^[a-zA-Z]+$`
+  - Matches a string containing one or more uppercase or lowercase letters, like `AbCdE`.
+
+#### 3. Dates and Times
+- **Month**: `^(0[1-9]|1[0-2])$`
+  - Matches months from `01` to `12`.
+- **Date format (YYYY-MM-DD)**: `^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$`
+  - Matches dates in the format like `2023-08-19`.
+
+#### 4. Special Characters
+- **Email addresses**: `^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$`
+  - Matches common email address formats.
+- **URLs**: `^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$`
+  - Matches URLs with http and https protocols.
+
+#### 5. File Paths
+- **File extensions (e.g., .jpg, .png)**: `\.\w+$`
+  - Matches file extensions like `.jpg`, `.png`, etc.
+
+#### 6. Password Complexity
+- **Password (minimum 8 characters, includes letters and numbers)**: `^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$`
+  - Matches passwords with at least 8 characters, including at least one letter and one number.
+
+### Usage Scenarios
+- These regular expressions can be used for validating form inputs in the frontend, such as registration forms, search bars, etc.
+- They can also be used for backend processing to ensure that the data received meets expected formats.
+- Suitable for analyzing log files to extract information in specific formats.
+
+### Notes
+- The performance of regular expressions may vary by browser or environment.
+- Care should be taken to properly escape characters, especially before special characters like dots.
+
+*/
